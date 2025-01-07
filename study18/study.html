@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img src="../images/image_1.jpg" alt="Gambar" />
+
+    <p>Arasaka Number Fighting Game</p>
+    <p>Whoever dies first loses!</p>
+    <!-- player 1  -->
+    <div class="player1">
+      <p class="playername"></p>
+      <p class="hitpoints"></p>
+      <p class="attackstatus"></p>
+    </div>
+
+    <select id="bodyPart">
+      <option value="head">Head (10% Chance)</option>
+      <option value="body">Body (30% Chance)</option>
+      <option value="leg">Legs (60% Chance)</option>
+    </select>
+
+    <button class="attackbutton">Attack</button>
+
+    <!--  player 2  -->
+    <div class="player2">
+      <p class="playername2"></p>
+      <p class="hitpoints2"></p>
+      <p class="attackstatus2"></p>
+    </div>
+
+    <select id="bodyPart2">
+      <option value="head">Head (10% Chance)</option>
+      <option value="body">Body (30% Chance)</option>
+      <option value="leg">Legs (60% Chance)</option>
+    </select>
+
+    <button class="attackbutton2">Attack</button>
+
+    <p class="winnerstatus"></p>
+
+    <script src="main.js"></script>
+  </body>
+</html>
