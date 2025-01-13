@@ -1,0 +1,20 @@
+body {
+    background-color: darkslategray;
+}
+
+img {
+    max-width: 400px;
+}
+
+#container {
+    background-color: black;
+    width: 500px;
+    height: 300px;
+  }
+  
+.tile{
+    background-color: blueviolet;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+}
