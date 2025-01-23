@@ -1,40 +1,42 @@
-// similiar to study41-shoplist
-//
+const inputNote = document.querySelector("#new-note");
+inputNote.setAttribute("placeholder", "Write your note");
+const inputButton = document.querySelector("#input-button");
 
-const noteList = []
+const outputArea = document.querySelector(".output-area");
+const ulNote = document.querySelector("ul");
 
-const inputNote = document.querySelector('#new-note')
-inputNote.setAttribute('placeholder', 'Write your note')
-const inputButton = document.querySelector('#input-button')
+let data = localStorage.getItem("savedNotes");
+let noteArray = data ? JSON.parse(data) : []; // if data exist, parse/read it, if not make a new array
 
-const outputArea = document.querySelector('.output-area')
-const ulNote = document.querySelector('ul')
+inputNote.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    addNewNotes();
+    showNotes();
+  }
+});
 
-inputNote.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter'){
-        noteList.push(inputNote.value)
-        inputNote.value = ''
-        ulNote.innerHTML = ''
-        inputNote.value = ''
-        console.log(noteList)
+inputButton.addEventListener("click", () => {
+  addNewNotes();
+  showNotes();
+});
 
-        noteList.forEach((element) => {
-            liList = document.createElement('li')
-            liList.textContent = element
-            ulNote.appendChild(liList)
-        })
-    }
-})
+function showNotes() {
+  noteArray.forEach((element) => {
+    const liList = document.createElement("li");
+    liList.textContent = element;
 
-inputButton.addEventListener('click', () => {
-    noteList.push(inputNote.value)
-    ulNote.innerHTML = ''
-    inputNote.value = ''
-    console.log(noteList)
+    liList.addEventListener("click", () => {});
 
-    noteList.forEach((element) => {
-        liList = document.createElement('li')
-        liList.textContent = element
-        ulNote.appendChild(liList)
-    })
-})
+    ulNote.appendChild(liList);
+  });
+}
+
+function addNewNotes() {
+  noteArray.push(inputNote.value);
+  localStorage.setItem("savedNotes", JSON.stringify(noteArray));
+  console.log(localStorage.getItem("savedNotes"));
+  ulNote.innerHTML = "";
+  inputNote.value = "";
+}
+
+showNotes();

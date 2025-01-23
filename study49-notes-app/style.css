@@ -2,6 +2,41 @@ body {
     background-color: darkslategray;
 }
 
-img {
-    max-width: 400px;
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+    padding: 8px;
+    margin: 10px 10px;
+    list-style: none;
+    background-color:darkolivegreen;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.main-content {
+    display: flex;
+}
+
+button {
+    display: block;
+    margin: 10px 0px;
+    padding: 2px 8px;
+}
+
+.right-area{
+    margin: 10px 10px;
+}
+
+textarea {
+    width: 550px;
+    height: 80px;
 }
