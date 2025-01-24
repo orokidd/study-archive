@@ -5,6 +5,7 @@ body {
 .container{
     display: flex;
     justify-content: center;
+    
 }
 
 ul {
@@ -20,6 +21,7 @@ li {
 
 li:hover {
     cursor: pointer;
+    outline: 1px solid beige;
 }
 
 .main-content {
@@ -39,4 +41,9 @@ button {
 textarea {
     width: 550px;
     height: 80px;
+    resize: none;
+}
+
+.main-para{
+    width: 550px;
 }
