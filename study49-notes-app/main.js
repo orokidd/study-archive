@@ -32,9 +32,11 @@ inputButton.addEventListener("click", () => {
 });
 
 function showNotes() {
+  ulNote.innerHTML = ""
   noteArray.forEach((element, index) => {
     const liList = document.createElement("li");
-    liList.textContent = element.slice(0, 20);
+    const formattedText = element.replace(/\n/g, "<br>"); 
+    liList.innerHTML = formattedText
 
     liList.addEventListener("click", () => showNotesMain(index));
 
@@ -72,6 +74,7 @@ function editNotes(index) {
     noteArray[index] = inputNote.value;
     localStorage.setItem("savedNotes", JSON.stringify(noteArray));
     showNotesMain(index)
+    showNotes()
   })
 
   outputArea.appendChild(inputNote);
