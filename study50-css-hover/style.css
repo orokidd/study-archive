@@ -1,0 +1,37 @@
+body {
+    background-color: darkslategray;
+}
+
+img {
+    max-width: 400px;
+}
+
+.area{
+    width: 200px;
+    height: 120px;
+    background-color: aquamarine;
+}
+
+.area:hover #bhover{
+    opacity: 1
+}
+
+#bhover{
+    opacity: 0;
+    margin: 20px;
+    transition: opacity 0.3s ease;
+}
+
+
+.area2{
+    margin: 10px 0px;
+    display: flex;
+}
+#butt1{
+    opacity: 1;
+    margin: 0;
+}
+
+li {
+    display: flex;
+}
