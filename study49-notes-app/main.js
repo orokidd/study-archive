@@ -1,26 +1,15 @@
 const inputNote = document.querySelector("#new-note");
-inputNote.value = ""
+inputNote.value = "";
 inputNote.setAttribute("placeholder", "New note");
 
 const inputButton = document.querySelector("#input-button");
-inputButton.textContent = "Add note"
+inputButton.textContent = "Add note";
 
 const outputArea = document.querySelector(".right-area");
 const ulNote = document.querySelector("ul");
 
 let data = localStorage.getItem("savedNotes");
 let noteArray = data ? JSON.parse(data) : []; // if data exist, parse/read it, if not make a new array
-
-// inputNote.addEventListener("keydown", (event) => {
-//   if (event.key === "Enter") {
-//     if (inputNote.value.trim() === "") {
-//       return;
-//     } else {
-//       addNewNotes();
-//       showNotes();
-//     }
-//   }
-// });
 
 inputButton.addEventListener("click", () => {
   if (inputNote.value.trim() === "") {
@@ -32,15 +21,20 @@ inputButton.addEventListener("click", () => {
 });
 
 function showNotes() {
-  ulNote.innerHTML = ""
+  ulNote.innerHTML = "";
   noteArray.forEach((element, index) => {
     const liList = document.createElement("li");
-    const formattedText = element.replace(/\n/g, "<br>"); 
-    liList.innerHTML = formattedText
+    const liText = document.createElement("span");
+    const delButton = document.createElement("button");
+    delButton.classList.add("delButton");
+    delButton.textContent = "Del";
+    const formattedText = element.replace(/\n/g, "<br>").slice(0, 120);
+    liText.innerHTML = formattedText;
 
     liList.addEventListener("click", () => showNotesMain(index));
 
     ulNote.appendChild(liList);
+    liList.appendChild(liText);
   });
 }
 
@@ -51,9 +45,9 @@ function showNotesMain(index) {
 
   editButton.textContent = "Edit";
   deleteButton.textContent = "Delete";
-  notesMain.setAttribute('class', 'main-para');
-  const formattedText = noteArray[index].replace(/\n/g, "<br>"); 
-  notesMain.innerHTML = formattedText ;
+  notesMain.setAttribute("class", "main-para");
+  const formattedText = noteArray[index].replace(/\n/g, "<br>");
+  notesMain.innerHTML = formattedText;
 
   editButton.addEventListener("click", () => editNotes(index));
   deleteButton.addEventListener("click", () => deleteNotes(index));
@@ -70,12 +64,12 @@ function editNotes(index) {
   const editButton = document.createElement("button");
   editButton.textContent = "Save note";
 
-  editButton.addEventListener('click', () => {
+  editButton.addEventListener("click", () => {
     noteArray[index] = inputNote.value;
     localStorage.setItem("savedNotes", JSON.stringify(noteArray));
-    showNotesMain(index)
-    showNotes()
-  })
+    showNotesMain(index);
+    showNotes();
+  });
 
   outputArea.appendChild(inputNote);
   outputArea.appendChild(editButton);
@@ -84,12 +78,12 @@ function editNotes(index) {
 function deleteNotes(index) {
   noteArray.splice(index, 1);
   localStorage.setItem("savedNotes", JSON.stringify(noteArray));
-  ulNote.innerHTML = ""
-  outputArea.innerHTML = ""
+  ulNote.innerHTML = "";
+  outputArea.innerHTML = "";
 
-  outputArea.appendChild(inputNote)
-  outputArea.appendChild(inputButton)
-  showNotes()
+  outputArea.appendChild(inputNote);
+  outputArea.appendChild(inputButton);
+  showNotes();
 }
 
 function addNewNotes() {
