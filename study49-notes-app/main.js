@@ -11,6 +11,8 @@ const ulNote = document.querySelector("ul");
 let data = localStorage.getItem("savedNotes");
 let noteArray = data ? JSON.parse(data) : []; // if data exist, parse/read it, if not make a new array
 
+let activeNote = null;
+
 inputButton.addEventListener("click", () => {
   if (inputNote.value.trim() === "") {
     return; // do nothing on empty input
@@ -25,15 +27,19 @@ function showNotes() {
   noteArray.forEach((element, index) => {
     const liList = document.createElement("li");
     const liText = document.createElement("span");
-    const delButton = document.createElement("button");
-    delButton.classList.add("delButton");
-    delButton.textContent = "Del";
     const formattedText = element.replace(/\n/g, "<br>").slice(0, 110);
     liText.innerHTML = formattedText;
 
     liList.addEventListener("click", (event) => {
-      showNotesMain(index);
-      selectedNotes(event);
+      console.log(index)
+      if (activeNote == index) {
+        showNotes();
+        returnDefault();
+      } else {
+        showNotesMain(index);
+      }
+
+      selectedNotes(index, event);
     });
 
     ulNote.appendChild(liList);
@@ -41,7 +47,9 @@ function showNotes() {
   });
 }
 
-function showNotesMain(index, event) {
+function showNotesMain(index) {
+  activeNote = index;
+  console.log(activeNote)
   const notesMain = document.createElement("p");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
@@ -97,7 +105,7 @@ function addNewNotes() {
   inputNote.value = "";
 }
 
-function selectedNotes(event) {
+function selectedNotes(index, event) {
   const liList = document.querySelectorAll("li");
 
   for (list of liList) {
@@ -105,6 +113,13 @@ function selectedNotes(event) {
   }
 
   event.currentTarget.style.borderColor = "blue";
+}
+
+function returnDefault(){
+  outputArea.innerHTML = "";
+  outputArea.appendChild(inputNote)
+  outputArea.appendChild(inputButton)
+
 }
 
 showNotes();
