@@ -23,6 +23,7 @@ inputButton.addEventListener("click", () => {
 });
 
 function showNotes() {
+  activeNote = null;
   ulNote.innerHTML = "";
   noteArray.forEach((element, index) => {
     const liList = document.createElement("li");
@@ -31,15 +32,14 @@ function showNotes() {
     liText.innerHTML = formattedText;
 
     liList.addEventListener("click", (event) => {
-      console.log(index)
+      console.log(index);
       if (activeNote == index) {
         showNotes();
         returnDefault();
       } else {
         showNotesMain(index);
       }
-
-      selectedNotes(index, event);
+      selectedNotes(event);
     });
 
     ulNote.appendChild(liList);
@@ -49,7 +49,7 @@ function showNotes() {
 
 function showNotesMain(index) {
   activeNote = index;
-  console.log(activeNote)
+  console.log(activeNote);
   const notesMain = document.createElement("p");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
@@ -105,21 +105,23 @@ function addNewNotes() {
   inputNote.value = "";
 }
 
-function selectedNotes(index, event) {
+function selectedNotes(event) {
   const liList = document.querySelectorAll("li");
 
-  for (list of liList) {
-    list.style.borderColor = "rgb(211, 211, 211)";
+  for (let list of liList) {
+    list.style.removeProperty("border");
+    list.style.removeProperty("background-color");
+    // remove style added in js return to default css
   }
 
-  event.currentTarget.style.borderColor = "blue";
+  event.currentTarget.style.border = "solid 1px blue";
+  event.currentTarget.style.backgroundColor = "rgba(24, 24, 24, 0.637)";
 }
 
-function returnDefault(){
+function returnDefault() {
   outputArea.innerHTML = "";
-  outputArea.appendChild(inputNote)
-  outputArea.appendChild(inputButton)
-
+  outputArea.appendChild(inputNote);
+  outputArea.appendChild(inputButton);
 }
 
 showNotes();
