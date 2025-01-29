@@ -28,17 +28,20 @@ function showNotes() {
     const delButton = document.createElement("button");
     delButton.classList.add("delButton");
     delButton.textContent = "Del";
-    const formattedText = element.replace(/\n/g, "<br>").slice(0, 120);
+    const formattedText = element.replace(/\n/g, "<br>").slice(0, 110);
     liText.innerHTML = formattedText;
 
-    liList.addEventListener("click", () => showNotesMain(index));
+    liList.addEventListener("click", (event) => {
+      showNotesMain(index);
+      selectedNotes(event);
+    });
 
     ulNote.appendChild(liList);
     liList.appendChild(liText);
   });
 }
 
-function showNotesMain(index) {
+function showNotesMain(index, event) {
   const notesMain = document.createElement("p");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
@@ -92,6 +95,16 @@ function addNewNotes() {
   console.log(localStorage.getItem("savedNotes"));
   ulNote.innerHTML = "";
   inputNote.value = "";
+}
+
+function selectedNotes(event) {
+  const liList = document.querySelectorAll("li");
+
+  for (list of liList) {
+    list.style.borderColor = "rgb(211, 211, 211)";
+  }
+
+  event.currentTarget.style.borderColor = "blue";
 }
 
 showNotes();
