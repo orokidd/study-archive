@@ -36,10 +36,14 @@ function showNotes() {
     const liDelete = document.createElement("button");
     liDelete.setAttribute("class", "opt-button");
     liDelete.textContent = "Delete";
+    liDelete.addEventListener('click', (event)=> deleteNotes(index, event))
+
 
     const liEdit = document.createElement("button");
     liEdit.setAttribute("class", "opt-button");
     liEdit.textContent = "Edit";
+    liEdit.addEventListener('click', (event)=> editNotes(index, event))
+
 
     liList.addEventListener("click", (event) => {
       console.log(index);
@@ -63,25 +67,17 @@ function showNotesMain(index) {
   activeNote = index;
   console.log(activeNote);
   const notesMain = document.createElement("p");
-  const editButton = document.createElement("button");
-  const deleteButton = document.createElement("button");
 
-  editButton.textContent = "Edit";
-  deleteButton.textContent = "Delete";
   notesMain.setAttribute("class", "main-para");
   const formattedText = noteArray[index].replace(/\n/g, "<br>");
   notesMain.innerHTML = formattedText;
 
-  editButton.addEventListener("click", () => editNotes(index));
-  deleteButton.addEventListener("click", () => deleteNotes(index));
-
   outputArea.innerHTML = "";
   outputArea.appendChild(notesMain);
-  outputArea.appendChild(editButton);
-  outputArea.appendChild(deleteButton);
 }
 
-function editNotes(index) {
+function editNotes(index, event) {
+  event.stopPropagation()
   outputArea.innerHTML = "";
   inputNote.value = noteArray[index];
   const editButton = document.createElement("button");
@@ -90,6 +86,7 @@ function editNotes(index) {
   editButton.addEventListener("click", () => {
     noteArray[index] = inputNote.value;
     localStorage.setItem("savedNotes", JSON.stringify(noteArray));
+    inputNote.value = "";
     showNotesMain(index);
     showNotes();
   });
@@ -98,7 +95,8 @@ function editNotes(index) {
   outputArea.appendChild(editButton);
 }
 
-function deleteNotes(index) {
+function deleteNotes(index, event) {
+  event.stopPropagation()
   noteArray.splice(index, 1);
   localStorage.setItem("savedNotes", JSON.stringify(noteArray));
   ulNote.innerHTML = "";
