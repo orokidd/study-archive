@@ -28,8 +28,18 @@ function showNotes() {
   noteArray.forEach((element, index) => {
     const liList = document.createElement("li");
     const liText = document.createElement("span");
+    liText.setAttribute("class", "left-span");
+
     const formattedText = element.replace(/\n/g, "<br>").slice(0, 110);
     liText.innerHTML = formattedText;
+
+    const liDelete = document.createElement("button");
+    liDelete.setAttribute("class", "opt-button");
+    liDelete.textContent = "Delete";
+
+    const liEdit = document.createElement("button");
+    liEdit.setAttribute("class", "opt-button");
+    liEdit.textContent = "Edit";
 
     liList.addEventListener("click", (event) => {
       console.log(index);
@@ -44,6 +54,8 @@ function showNotes() {
 
     ulNote.appendChild(liList);
     liList.appendChild(liText);
+    liList.appendChild(liEdit);
+    liList.appendChild(liDelete);
   });
 }
 
