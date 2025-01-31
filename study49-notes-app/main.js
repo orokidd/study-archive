@@ -49,7 +49,7 @@ function showNotes() {
         returnDefault();
       } else {
         showNotesMain(index);
-        selectedNotes(event);
+        activeNotes(index);
       }
     });
 
@@ -129,18 +129,18 @@ function addNewNotes() {
   inputNote.value = "";
 }
 
-function selectedNotes(event) {
-  const liList = document.querySelectorAll("li");
+// function selectedNotes(event) {
+//   const liList = document.querySelectorAll("li");
 
-  for (let list of liList) {
-    list.style.removeProperty("border");
-    list.style.removeProperty("background-color");
-    // remove style added in js return to default css
-  }
+//   for (let list of liList) {
+//     list.style.removeProperty("border");
+//     list.style.removeProperty("background-color");
+//     // remove style added in js return to default css
+//   }
 
-  event.currentTarget.style.border = "solid 1px blue";
-  event.currentTarget.style.backgroundColor = "rgba(24, 24, 24, 0.637)";
-}
+//   event.currentTarget.style.border = "solid 1px blue";
+//   event.currentTarget.style.backgroundColor = "rgba(24, 24, 24, 0.637)";
+// }
 
 function returnDefault() {
   outputArea.innerHTML = "";
