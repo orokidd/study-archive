@@ -57,11 +57,13 @@ textarea {
 }
 
 .main-para {
-  margin: 20px 10px 0px 0px;
+  margin: 10px 10px 0px 0px;
   padding: 12px;
   min-width: 530px;
   max-width: 530px;
+  max-height: 740px;
   color: white;
+  overflow: scroll;
   overflow-wrap: break-word;
   white-space: pre-line;
 }
