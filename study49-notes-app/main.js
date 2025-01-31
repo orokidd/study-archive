@@ -30,7 +30,7 @@ function showNotes() {
     const liText = document.createElement("span");
     liText.setAttribute("class", "left-span");
 
-    const formattedText = element.replace(/\n/g, "<br>").slice(0, 110);
+    const formattedText = element.replace(/\n/g, "<br>")
     liText.innerHTML = formattedText;
 
     const liDelete = document.createElement("button");
@@ -66,7 +66,8 @@ function showNotesMain(index) {
   const notesMain = document.createElement("p");
 
   notesMain.setAttribute("class", "main-para");
-  const formattedText = noteArray[index].replace(/\n/g, "<br>");
+  // const formattedText = noteArray[index].replace(/\n/g, "<br>");
+  const formattedText = noteArray[index]
   notesMain.innerHTML = formattedText;
 
   outputArea.innerHTML = "";
@@ -95,7 +96,7 @@ function editNotes(index, event) {
 function activeNotes(index) {
   const liList = document.querySelectorAll("li");
   const spanList = document.querySelectorAll(".left-span");
-  const formattedText = noteArray[index].replace(/\n/g, "<br>").slice(0, 110);
+  const formattedText = noteArray[index]
 
   for (let list of liList) {
     list.style.removeProperty("border");
