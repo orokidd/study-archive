@@ -36,24 +36,21 @@ function showNotes() {
     const liDelete = document.createElement("button");
     liDelete.setAttribute("class", "opt-button");
     liDelete.textContent = "Delete";
-    liDelete.addEventListener('click', (event)=> deleteNotes(index, event))
-
+    liDelete.addEventListener("click", (event) => deleteNotes(index, event));
 
     const liEdit = document.createElement("button");
     liEdit.setAttribute("class", "opt-button");
     liEdit.textContent = "Edit";
-    liEdit.addEventListener('click', (event)=> editNotes(index, event))
-
+    liEdit.addEventListener("click", (event) => editNotes(index, event));
 
     liList.addEventListener("click", (event) => {
-      console.log(index);
       if (activeNote == index) {
         showNotes();
         returnDefault();
       } else {
         showNotesMain(index);
+        selectedNotes(event);
       }
-      selectedNotes(event);
     });
 
     ulNote.appendChild(liList);
@@ -77,7 +74,7 @@ function showNotesMain(index) {
 }
 
 function editNotes(index, event) {
-  event.stopPropagation()
+  event.stopPropagation();
   outputArea.innerHTML = "";
   inputNote.value = noteArray[index];
   const editButton = document.createElement("button");
@@ -88,15 +85,32 @@ function editNotes(index, event) {
     localStorage.setItem("savedNotes", JSON.stringify(noteArray));
     inputNote.value = "";
     showNotesMain(index);
-    showNotes();
+    activeNotes(index);
   });
 
   outputArea.appendChild(inputNote);
   outputArea.appendChild(editButton);
 }
 
+function activeNotes(index) {
+  const liList = document.querySelectorAll("li");
+  const spanList = document.querySelectorAll(".left-span");
+  const formattedText = noteArray[index].replace(/\n/g, "<br>").slice(0, 110);
+
+  for (let list of liList) {
+    list.style.removeProperty("border");
+    list.style.removeProperty("background-color");
+    // remove style added in js return to default css
+  }
+
+  liList[index].style.border = "solid 1px blue";
+  liList[index].style.backgroundColor = "rgba(24, 24, 24, 0.637)";
+  spanList[index].innerHTML = formattedText;
+}
+
+
 function deleteNotes(index, event) {
-  event.stopPropagation()
+  event.stopPropagation();
   noteArray.splice(index, 1);
   localStorage.setItem("savedNotes", JSON.stringify(noteArray));
   ulNote.innerHTML = "";
