@@ -1,3 +1,7 @@
+const outputArea = document.querySelector(".right-area");
+const inputBox = document.querySelector("#input-box");
+const leftArea = document.querySelector(".left-area");
+
 const inputNote = document.querySelector("#new-note");
 inputNote.value = "";
 inputNote.setAttribute("placeholder", "Write your note...");
@@ -9,11 +13,6 @@ inputTitle.setAttribute("placeholder", "Title");
 const inputButton = document.querySelector("#input-button");
 inputButton.textContent = "Add note";
 
-const outputArea = document.querySelector(".right-area");
-const inputBox = document.querySelector("#input-box");
-
-const leftArea = document.querySelector(".left-area");
-
 const leftSpan = document.createElement("span");
 leftSpan.id = "small-span";
 leftSpan.textContent = "NOTES";
@@ -24,10 +23,9 @@ let noteArray = data ? JSON.parse(data) : []; // if data exist, parse/read it, i
 let activeNote = null;
 
 function showNotes() {
+  const ulNote = document.createElement("ul");
   activeNote = null;
   leftArea.innerHTML = "";
-
-  const ulNote = document.createElement("ul");
 
   noteArray.forEach((element, index) => {
     const liList = document.createElement("li");
@@ -50,7 +48,7 @@ function showNotes() {
     liEdit.textContent = "Edit";
     liEdit.addEventListener("click", (event) => editNotes(index, event));
 
-    liList.addEventListener("click", (event) => {
+    liList.addEventListener("click", () => {
       if (activeNote == index) {
         showNotes();
         returnDefault();
@@ -77,7 +75,7 @@ function showNotesMain(index) {
   const notesMain = document.createElement("p");
   const notesTitle = document.createElement("p")
 
-  notesTitle.setAttribute("class", "main-para");
+  notesTitle.setAttribute("class", "main-title");
   notesMain.setAttribute("class", "main-para");
 
   notesMain.innerHTML = noteArray[index].note;
@@ -140,7 +138,7 @@ function deleteNotes(index, event) {
   showNotes();
 }
 
-function Notes(title, note){
+function Notes(title, note) {
   this.title = title;
   this.note = note;
 }
