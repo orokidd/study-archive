@@ -50,7 +50,7 @@ textarea {
   border-radius: 6px;
   background-color: transparent;
   padding: 12px;
-  min-width: 540px;
+  min-width: 30vw;
   min-height: 80px;
   resize: none;
   color: white;
@@ -59,7 +59,7 @@ textarea {
 .main-para {
   margin: 10px 10px 0px 0px;
   padding: 12px;
-  min-width: 530px;
+  min-width: 220px;
   max-width: 530px;
   max-height: 740px;
   color: white;
@@ -85,6 +85,7 @@ textarea {
   font-family: "Roboto", serif;
   color: white;
   white-space: pre-line;
+  overflow-wrap: break-word;
 }
 
 .opt-button {
