@@ -110,6 +110,19 @@ li:hover {
   overflow-wrap: break-word;
 }
 
+.left-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 15px;
+  font-family: "Roboto", serif;
+  font-weight: 600;
+  color: white;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
 .opt-button {
   display: inline;
   /* transition-duration: .2s; */

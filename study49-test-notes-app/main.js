@@ -10,6 +10,7 @@ const inputButton = document.querySelector("#input-button");
 inputButton.textContent = "Add note";
 
 const outputArea = document.querySelector(".right-area");
+const inputBox = document.querySelector("#input-box");
 
 const leftArea = document.querySelector(".left-area");
 
@@ -32,13 +33,12 @@ function showNotes() {
     const liList = document.createElement("li");
 
     const liTitle = document.createElement("span");
+    liTitle.setAttribute("class", "left-title");
     liTitle.innerHTML = element.title
 
     const liText = document.createElement("span");
     liText.setAttribute("class", "left-span");
-
-    const formattedText = element.note
-    liText.innerHTML = formattedText;
+    liText.innerHTML = element.note
 
     const liDelete = document.createElement("button");
     liDelete.setAttribute("class", "opt-button");
@@ -91,26 +91,31 @@ function showNotesMain(index) {
 function editNotes(index, event) {
   event.stopPropagation();
   outputArea.innerHTML = "";
-  inputNote.value = noteArray[index];
+  inputTitle.value = noteArray[index].title;
+  inputNote.value = noteArray[index].note;
   const editButton = document.createElement("button");
   editButton.textContent = "Save note";
 
   editButton.addEventListener("click", () => {
-    noteArray[index] = inputNote.value;
+    noteArray[index].title = inputTitle.value;
+    noteArray[index].note = inputNote.value;
     localStorage.setItem("savedNotes", JSON.stringify(noteArray));
+    inputTitle.value = "";
     inputNote.value = "";
     showNotesMain(index);
     activeNotes(index);
   });
 
-  outputArea.appendChild(inputNote);
+  outputArea.appendChild(inputBox);
   outputArea.appendChild(editButton);
 }
 
 function activeNotes(index) {
   const liList = document.querySelectorAll("li");
   const spanList = document.querySelectorAll(".left-span");
-  const formattedText = noteArray[index];
+  const spanTitle = document.querySelectorAll(".left-title");
+  const listTitle = noteArray[index].title;
+  const listNote = noteArray[index].note;
 
   for (let list of liList) {
     list.style.removeProperty("border");
@@ -120,7 +125,8 @@ function activeNotes(index) {
 
   liList[index].style.border = "solid 1px rgb(148, 148, 148)";
   liList[index].style.backgroundColor = "rgba(24, 24, 24, 0.637)";
-  // spanList[index].innerHTML = formattedText;
+  spanTitle[index].innerHTML = listTitle;
+  spanList[index].innerHTML = listNote;
 }
 
 function deleteNotes(index, event) {
@@ -129,7 +135,7 @@ function deleteNotes(index, event) {
   localStorage.setItem("savedNotes", JSON.stringify(noteArray));
   outputArea.innerHTML = "";
 
-  outputArea.appendChild(inputNote);
+  outputArea.appendChild(inputBox);
   outputArea.appendChild(inputButton);
   showNotes();
 }
@@ -144,12 +150,14 @@ function addNewNotes() {
   noteArray.push(newNote);
   localStorage.setItem("savedNotes", JSON.stringify(noteArray));
   console.log(localStorage.getItem("savedNotes"));
+  inputTitle.value = "";
   inputNote.value = "";
 }
 
 function returnDefault() {
   outputArea.innerHTML = "";
-  outputArea.appendChild(inputNote);
+
+  outputArea.appendChild(inputBox);
   outputArea.appendChild(inputButton);
 }
 
