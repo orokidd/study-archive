@@ -50,7 +50,7 @@ li:hover {
   border-radius: 6px;
 }
 
-#new-note {
+#new-note, #new-title {
   display: block;
   border: none;
   background-color: transparent;
@@ -62,19 +62,12 @@ li:hover {
 }
 
 #new-title{
-  display: block;
-  border: none;
-  background-color: transparent;
-  padding: 12px;
-  min-width: 30vw;
   min-height: 2px;
-  resize: none;
-  color: white;
 }
 
 .main-para {
-  
-  min-width: 220px;
+  /* min-width: 220px; */
+  min-width: 32vw;
   max-width: 530px;
   max-height: 740px;
   color: white;
@@ -103,29 +96,26 @@ li:hover {
   color: rgb(158, 158, 158);
 }
 
-.left-span {
+.left-span, .left-title{
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 14px;
   font-family: "Roboto", serif;
   color: white;
   white-space: pre-line;
   overflow-wrap: break-word;
 }
 
+.left-span {
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  font-size: 14px;
+}
+
 .left-title {
-  display: -webkit-box;
-  -webkit-line-clamp: 1; /* Limit to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 15px;
-  font-family: "Roboto", serif;
+  margin-bottom: .4rem;
+  -webkit-line-clamp: 1;
+  font-size: 16px;
   font-weight: 600;
-  color: white;
-  white-space: pre-line;
-  overflow-wrap: break-word;
 }
 
 .opt-button {
