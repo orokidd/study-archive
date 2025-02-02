@@ -65,11 +65,8 @@ li:hover {
   min-height: 2px;
 }
 
-.main-para {
-  /* min-width: 220px; */
-  min-width: 32vw;
-  max-width: 530px;
-  max-height: 740px;
+.main-title, .main-para{
+  width: 32rem;
   color: white;
   overflow: scroll;
   overflow-wrap: break-word;
@@ -78,14 +75,11 @@ li:hover {
 
 .main-title {
   margin: 30px 0px 0px 0px;
-  min-width: 220px;
-  max-width: 530px;
-  max-height: 740px;
   font-weight: 600;
-  color: white;
-  overflow: scroll;
-  overflow-wrap: break-word;
-  white-space: pre-line;
+}
+
+.main-para {
+  max-height: 740px;
 }
 
 #small-span {
@@ -135,5 +129,8 @@ li:hover .opt-button {
   }
   li {
     max-width: 100px;
+  }
+  .main-title, .main-para{
+    width: 22.3rem;
   }
 }
