@@ -4,11 +4,11 @@ const leftArea = document.querySelector(".left-area");
 
 const inputNote = document.querySelector("#new-note");
 inputNote.value = "";
-inputNote.setAttribute("placeholder", "Write your note...");
+inputNote.placeholder ="Write your note...";
 
 const inputTitle = document.querySelector("#new-title");
 inputTitle.value = "";
-inputTitle.setAttribute("placeholder", "Title");
+inputTitle.placeholder ="Title";
 
 const inputButton = document.querySelector("#input-button");
 inputButton.textContent = "Add note";
@@ -19,7 +19,6 @@ leftSpan.textContent = "NOTES";
 
 let data = localStorage.getItem("savedNotes");
 let noteArray = data ? JSON.parse(data) : []; // if data exist, parse/read it, if not make a new array
-
 let activeNote = null;
 
 function showNotes() {
