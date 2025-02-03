@@ -71,7 +71,7 @@ function showNotes() {
     liList.appendChild(liText);
     liList.appendChild(liEdit);
     liList.appendChild(liDelete);
-    
+
     liDelete.appendChild(deleteIcon);
     liEdit.appendChild(editIcon);
   });
@@ -100,6 +100,7 @@ function editNotes(index, event) {
   inputTitle.value = noteArray[index].title;
   inputNote.value = noteArray[index].note;
   const editButton = document.createElement("button");
+  editButton.id = "input-button";
   editButton.textContent = "Save note";
 
   editButton.addEventListener("click", () => {
