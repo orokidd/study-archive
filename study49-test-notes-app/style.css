@@ -112,15 +112,32 @@ li:hover {
   font-weight: 600;
 }
 
+button {
+  cursor: pointer;
+}
+
 .opt-button {
   display: inline;
-  /* transition-duration: .2s; */
+  transition-duration: .2s;
   opacity: 0;
   margin: 6px 6px 0px 0px;
+  padding: 7px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+}
+
+.opt-button:hover {
+  background: rgb(63, 63, 63);
 }
 
 li:hover .opt-button {
   opacity: 1;
+}
+
+i {
+  font-size: 16px;
+  color: rgb(211, 211, 211);
 }
 
 @media screen and (max-width: 720px) {

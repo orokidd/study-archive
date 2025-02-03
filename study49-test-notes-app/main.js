@@ -39,13 +39,19 @@ function showNotes() {
 
     const liDelete = document.createElement("button");
     liDelete.setAttribute("class", "opt-button");
-    liDelete.textContent = "Delete";
+    liDelete.title =  "Delete";
     liDelete.addEventListener("click", (event) => deleteNotes(index, event));
 
     const liEdit = document.createElement("button");
     liEdit.setAttribute("class", "opt-button");
-    liEdit.textContent = "Edit";
+    liEdit.title =  "Edit";
     liEdit.addEventListener("click", (event) => editNotes(index, event));
+
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-regular", "fa-trash-can");
+
+    const editIcon = document.createElement("i");
+    editIcon.classList.add("fa-regular", "fa-pen-to-square");
 
     liList.addEventListener("click", () => {
       if (activeNote == index) {
@@ -65,6 +71,9 @@ function showNotes() {
     liList.appendChild(liText);
     liList.appendChild(liEdit);
     liList.appendChild(liDelete);
+    
+    liDelete.appendChild(deleteIcon);
+    liEdit.appendChild(editIcon);
   });
 }
 
