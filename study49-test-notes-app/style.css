@@ -54,7 +54,7 @@ textarea:focus {
   display: block;
   border: none;
   background-color: transparent;
-  padding: 12px;
+  padding: 12px 12px 0px 12px;
   min-width: 30rem;
   max-width: 30rem;
   color: white;
