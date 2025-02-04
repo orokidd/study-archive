@@ -73,7 +73,7 @@ textarea:focus {
 }
 
 .main-title, .main-para{
-  width: 32rem;
+  width: 31.6rem;
   color: white;
   overflow: scroll;
   overflow-wrap: break-word;
