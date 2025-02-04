@@ -49,18 +49,26 @@ textarea:focus {
 }
 
 #new-note, #new-title {
+  font-family: Arial, Helvetica, sans-serif;
   display: block;
   border: none;
   background-color: transparent;
   padding: 12px;
   min-width: 30rem;
-  min-height: 80px;
-  resize: none;
+  max-width: 30rem;
   color: white;
 }
 
 #new-title{
-  min-height: 2px;
+  resize: none;
+  max-height: 26px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#new-note{
+  min-height: 140px;
+  font-size: 14px;
 }
 
 .main-title, .main-para{
@@ -143,6 +151,7 @@ i {
 @media screen and (max-width: 720px) {
   #new-note, #new-title {
     min-width: 20rem;
+    max-width: 20rem;
   }
   li {
     max-width: 100px;
