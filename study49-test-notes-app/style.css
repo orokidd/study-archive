@@ -88,8 +88,7 @@ textarea:focus {
 }
 
 .main-para {
-  max-height: 740px;
-  
+  max-height: 680px;
 }
 
 #small-span {
@@ -161,6 +160,6 @@ i {
     max-width: 100px;
   }
   .main-title, .main-para{
-    width: 22.3rem;
+    max-width: 14.9rem;
   }
 }
