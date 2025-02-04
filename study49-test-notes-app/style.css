@@ -151,8 +151,8 @@ i {
 
 @media screen and (max-width: 720px) {
   #new-note, #new-title {
-    min-width: 20rem;
-    max-width: 20rem;
+    min-width: 14rem;
+    max-width: 14rem;
   }
   li {
     max-width: 100px;
