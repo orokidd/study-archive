@@ -166,7 +166,7 @@ i {
 
 @media screen and (max-width: 500px) {
   .main-content {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
   }
   #new-note, #new-title {
     max-width: 94%;
@@ -184,6 +184,9 @@ i {
   .main-title, .main-para{
     /* max-width: 14.9rem; */
     width: 94vw;
+  }
+  .opt-button{
+    opacity: 1;
   }
 }
 

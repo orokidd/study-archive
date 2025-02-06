@@ -4,11 +4,11 @@ const leftArea = document.querySelector(".left-area");
 
 const inputNote = document.querySelector("#new-note");
 inputNote.value = "";
-inputNote.placeholder ="Write your note...";
+inputNote.placeholder = "Write your note...";
 
 const inputTitle = document.querySelector("#new-title");
 inputTitle.value = "";
-inputTitle.placeholder ="Title";
+inputTitle.placeholder = "Title";
 
 const inputButton = document.querySelector("#input-button");
 inputButton.textContent = "Add note";
@@ -39,12 +39,12 @@ function showNotes() {
 
     const liDelete = document.createElement("button");
     liDelete.setAttribute("class", "opt-button");
-    liDelete.title =  "Delete";
+    liDelete.title = "Delete";
     liDelete.addEventListener("click", (event) => deleteNotes(index, event));
 
     const liEdit = document.createElement("button");
     liEdit.setAttribute("class", "opt-button");
-    liEdit.title =  "Edit";
+    liEdit.title = "Edit";
     liEdit.addEventListener("click", (event) => editNotes(index, event));
 
     const deleteIcon = document.createElement("i");
@@ -78,11 +78,26 @@ function showNotes() {
 }
 
 function showNotesMain(index) {
+  if (window.innerWidth <= 500) {
+    leftArea.style.display = "none";
+  }
   activeNote = index;
   console.log(activeNote);
-  const notesMain = document.createElement("p");
-  const notesTitle = document.createElement("p")
 
+  const backButton = document.createElement("button");
+  backButton.classList.add("opt-button")
+  backButton.title = "Back"
+  const backIcon = document.createElement("i");
+  backIcon.classList.add("fa", "fa-arrow-left");
+  backButton.addEventListener('click', () => {
+    leftArea.style.display = "block";
+    showNotes();
+    returnDefault();
+  }
+  );
+
+  const notesMain = document.createElement("p");
+  const notesTitle = document.createElement("p");
   notesTitle.setAttribute("class", "main-title");
   notesMain.setAttribute("class", "main-para");
 
@@ -90,6 +105,8 @@ function showNotesMain(index) {
   notesTitle.innerHTML = noteArray[index].title;
 
   outputArea.innerHTML = "";
+  outputArea.appendChild(backButton);
+  backButton.appendChild(backIcon);
   outputArea.appendChild(notesTitle);
   outputArea.appendChild(notesMain);
 }
