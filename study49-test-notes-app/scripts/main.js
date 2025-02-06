@@ -57,6 +57,7 @@ function showNotes() {
       if (activeNote == index) {
         showNotes();
         returnDefault();
+        clearResizeListener();
       } else {
         showNotesMain(index);
         activeNotes(index);
@@ -81,16 +82,18 @@ function showNotesMain(index) {
   if (window.innerWidth <= 500) {
     leftArea.style.display = "none";
   }
+  window.addEventListener('resize', handleResize);
   activeNote = index;
-  console.log(activeNote);
 
   const backButton = document.createElement("button");
-  backButton.classList.add("opt-button")
+  backButton.classList.add("opt-button", "back-button");
   backButton.title = "Back"
+
   const backIcon = document.createElement("i");
   backIcon.classList.add("fa", "fa-arrow-left");
   backButton.addEventListener('click', () => {
     leftArea.style.display = "block";
+    clearResizeListener();
     showNotes();
     returnDefault();
   }
@@ -183,6 +186,18 @@ function returnDefault() {
 
   outputArea.appendChild(inputBox);
   outputArea.appendChild(inputButton);
+}
+
+function handleResize() {
+  if (window.innerWidth > 500){
+    leftArea.style.display = "block";
+  } else {
+    leftArea.style.display = "none";
+  }
+}
+
+function clearResizeListener() {
+  window.removeEventListener('resize', handleResize);
 }
 
 inputButton.addEventListener("click", () => {

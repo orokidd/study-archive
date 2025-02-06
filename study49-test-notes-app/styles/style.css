@@ -126,6 +126,7 @@ button {
   cursor: pointer;
 }
 
+
 .opt-button {
   display: inline;
   opacity: 0;
@@ -148,6 +149,10 @@ li:hover .opt-button {
 i {
   font-size: 16px;
   color: rgb(211, 211, 211);
+}
+
+.back-button{
+  display: none;
 }
 
 @media screen and (max-width: 840px) {
@@ -185,8 +190,13 @@ i {
     /* max-width: 14.9rem; */
     width: 94vw;
   }
-  .opt-button{
+  .main-para {
+    max-height: none;
+  }
+
+  .back-button{
     opacity: 1;
+    display: inline;
   }
 }
 
