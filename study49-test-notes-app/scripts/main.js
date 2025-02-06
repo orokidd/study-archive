@@ -189,7 +189,7 @@ function returnDefault() {
 }
 
 function handleResize() {
-  if (window.innerWidth > 500){
+  if (window.innerWidth > 500) {
     leftArea.style.display = "block";
   } else {
     leftArea.style.display = "none";
