@@ -44,8 +44,16 @@ operatorButton.forEach((operator) => {
 })
 
 function clickOperator(operator) {
-  waitingForSecondNumber = true;
-  outputOp.textContent = operator.textContent;
+    outputOp.textContent = operator.textContent;
+  if (secondNum) {
+    finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
+    output.textContent = finalResult;
+    firstNum = finalResult;
+    output2.textContent = ""
+    secondNum = "";
+  } else {
+    waitingForSecondNumber = true;
+  }
   operatorNum = operator.textContent;
 }
 
@@ -79,7 +87,7 @@ function countResult(num1, num2, op) {
   }
 }
 
-clearButton.addEventListener('click', ()=> {
+clearButton.addEventListener('click', () => {
   waitingForSecondNumber = false;
   firstNum = ""
   secondNum = ""
