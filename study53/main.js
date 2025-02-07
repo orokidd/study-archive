@@ -2,6 +2,7 @@ const outputDiv = document.querySelector(".outputDiv")
 const numbersButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator")
 const countButton = document.querySelector(".count");
+const clearButton = document.querySelector(".clear");
 
 let waitingForSecondNumber = false;
 let firstNum = ""
@@ -77,3 +78,14 @@ function countResult(num1, num2, op) {
       break;
   }
 }
+
+clearButton.addEventListener('click', ()=> {
+  waitingForSecondNumber = false;
+  firstNum = ""
+  secondNum = ""
+  operatorNum = ""
+
+  output.textContent = ""
+  outputOp.textContent = ""
+  output2.textContent = ""
+})
