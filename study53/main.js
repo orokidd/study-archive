@@ -1,13 +1,22 @@
+const outputDiv = document.querySelector(".outputDiv")
 const numbersButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator")
 const countButton = document.querySelector(".count");
+
 let waitingForSecondNumber = false;
 let firstNum = ""
 let secondNum = ""
 let operatorNum = ""
 let finalResult
-let output = document.querySelector(".hasil");
+
+const output = document.querySelector(".hasil");
 output.textContent = ""
+
+const outputOp = document.querySelector(".operator");
+outputOp.textContent = ""
+
+const output2 = document.querySelector(".hasil2");
+output2.textContent = ""
 
 numbersButton.forEach((number) => {
   number.addEventListener('click', () => {
@@ -25,48 +34,46 @@ function firstNumber(number) {
 }
 
 function secondNumber(number) {
-  output.textContent += number.textContent;
+  output2.textContent += number.textContent;
   secondNum += number.textContent;
 }
 
 operatorButton.forEach((operator) => {
-  operator.addEventListener('click', ()=> clickOperator(operator))
+  operator.addEventListener('click', () => clickOperator(operator))
 })
 
 function clickOperator(operator) {
   waitingForSecondNumber = true;
-  output.textContent += operator.textContent;
+  outputOp.textContent = operator.textContent;
   operatorNum = operator.textContent;
 }
 
 countButton.addEventListener('click', () => {
-  console.log(firstNum)
-  console.log(secondNum)
-  console.log(operatorNum)
-
   finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
   output.textContent = finalResult;
   firstNum = finalResult;
+
+  outputOp.textContent = ""
+  output2.textContent = ""
   secondNum = "";
-  console.log(finalResult)
 })
 
-function countResult(num1, num2, op){
-  switch(op){
-    case "+": 
-    return num1 + num2;
-    break;
-    
+function countResult(num1, num2, op) {
+  switch (op) {
+    case "+":
+      return num1 + num2;
+      break;
+
     case "-":
-      return num1-num2;
+      return num1 - num2;
       break;
 
     case "*":
-      return num1*num2;
+      return num1 * num2;
       break;
 
     case "/":
-      return num1/num2;
+      return num1 / num2;
       break;
   }
 }
