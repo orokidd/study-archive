@@ -46,6 +46,8 @@ countButton.addEventListener('click', () => {
 
   finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
   output.textContent = finalResult;
+  firstNum = finalResult;
+  secondNum = "";
   console.log(finalResult)
 })
 
