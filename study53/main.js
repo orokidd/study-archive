@@ -5,6 +5,7 @@ let waitingForSecondNumber = false;
 let firstNum = ""
 let secondNum = ""
 let operatorNum = ""
+let finalResult
 let output = document.querySelector(".hasil");
 output.textContent = ""
 
@@ -42,4 +43,28 @@ countButton.addEventListener('click', () => {
   console.log(firstNum)
   console.log(secondNum)
   console.log(operatorNum)
+
+  finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
+  output.textContent = finalResult;
+  console.log(finalResult)
 })
+
+function countResult(num1, num2, op){
+  switch(op){
+    case "+": 
+    return num1 + num2;
+    break;
+    
+    case "-":
+      return num1-num2;
+      break;
+
+    case "*":
+      return num1*num2;
+      break;
+
+    case "/":
+      return num1/num2;
+      break;
+  }
+}
