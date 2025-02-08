@@ -25,7 +25,7 @@ const calculator = new Calculator();
 console.log(calculator.calculate(5, 3, "+")); // Output: 8
 ```
 
-Here, calculate is part of Calculator.prototype, so it is shared across all instances of Calculator.
+Here, `calculate` is part of `Calculator.prototype`, so it is shared across all instances of Calculator.
 
 ### How Prototype Works in ES6 Classes (New Way)
 With ES6 classes, methods are automatically added to the prototype, so you don't need to manually assign them:
@@ -62,8 +62,8 @@ Why Does This Matter?
 - If you define methods inside the constructor, they are created every time you instantiate an object, wasting memory.
 - If you define methods inside a class (but outside the constructor), they are added to the prototype and shared across instances, making them memory-efficient.
 
-Final Answer
+#### Conclusion
 
-Yes, in ES6 classes, you don't need to explicitly use `ClassName.prototype.methodName = function() {}` Any method defined inside the class (but outside the constructor) is automatically added to the prototype.
+In ES6 classes, you don't need to explicitly use `ClassName.prototype.methodName = function() {}` Any method defined inside the class (but outside the constructor) is automatically added to the prototype.
 
 Would you like a deeper dive into prototypes, or is this explanation clear? 🚀
