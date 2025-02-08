@@ -1,9 +1,10 @@
-Yes! When using ES6 class syntax, methods inside a class are automatically added to the prototype of the class, meaning you don't need to explicitly use ClassName.prototype.methodName = function () {}.
+Yes! When using ES6 class syntax, methods inside a class are automatically added to the prototype of the class, meaning you don't need to explicitly use 
+`ClassName.prototype.methodName = function () {}`
 
 How Prototype Works in ES5 (Old Way)
 Before ES6 classes, we had to manually assign methods to the prototype:
 
-function Calculator() {
+`function Calculator() {
   this.firstNum = "";
   this.secondNum = "";
 }
@@ -20,14 +21,14 @@ Calculator.prototype.calculate = function (num1, num2, op) {
 };
 
 const calculator = new Calculator();
-console.log(calculator.calculate(5, 3, "+")); // Output: 8
+console.log(calculator.calculate(5, 3, "+")); // Output: 8`
 
 Here, calculate is part of Calculator.prototype, so it is shared across all instances of Calculator.
 
 How Prototype Works in ES6 Classes (New Way)
 With ES6 classes, methods are automatically added to the prototype, so you don't need to manually assign them:
 
-class Calculator {
+`class Calculator {
   constructor() {
     this.firstNum = "";
     this.secondNum = "";
@@ -45,11 +46,11 @@ class Calculator {
 }
 
 const calculator = new Calculator();
-console.log(calculator.calculate(5, 3, "+")); // Output: 8
+console.log(calculator.calculate(5, 3, "+")); // Output: 8`
 
 Under the hood, JavaScript automatically translates this class into prototype-based syntax. If you inspect an instance in the browser console:
 
-console.log(Object.getPrototypeOf(calculator));
+`console.log(Object.getPrototypeOf(calculator));`
 You'll see that calculate() exists on Calculator.prototype, not on the instance itself.
 
 Why Does This Matter?
@@ -59,6 +60,6 @@ Why Does This Matter?
 
 Final Answer
 
-Yes, in ES6 classes, you don't need to explicitly use ClassName.prototype.methodName = function() {}. Any method defined inside the class (but outside the constructor) is automatically added to the prototype.
+Yes, in ES6 classes, you don't need to explicitly use `ClassName.prototype.methodName = function() {}` Any method defined inside the class (but outside the constructor) is automatically added to the prototype.
 
 Would you like a deeper dive into prototypes, or is this explanation clear? 🚀
