@@ -28,7 +28,8 @@ Here, calculate is part of Calculator.prototype, so it is shared across all inst
 How Prototype Works in ES6 Classes (New Way)
 With ES6 classes, methods are automatically added to the prototype, so you don't need to manually assign them:
 
-```class Calculator {
+```
+class Calculator {
   constructor() {
     this.firstNum = "";
     this.secondNum = "";
@@ -46,7 +47,8 @@ With ES6 classes, methods are automatically added to the prototype, so you don't
 }
 
 const calculator = new Calculator();
-console.log(calculator.calculate(5, 3, "+")); // Output: 8```
+console.log(calculator.calculate(5, 3, "+")); // Output: 8
+```
 
 Under the hood, JavaScript automatically translates this class into prototype-based syntax. If you inspect an instance in the browser console:
 
