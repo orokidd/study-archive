@@ -1,7 +1,7 @@
-Yes! When using ES6 class syntax, methods inside a class are automatically added to the prototype of the class, meaning you don't need to explicitly use 
+When using ES6 class syntax, methods inside a class are automatically added to the prototype of the class, meaning you don't need to explicitly use 
 `ClassName.prototype.methodName = function () {}`
 
-How Prototype Works in ES5 (Old Way)
+### How Prototype Works in ES5 (Old Way)
 Before ES6 classes, we had to manually assign methods to the prototype:
 
 ```javascript
@@ -27,7 +27,7 @@ console.log(calculator.calculate(5, 3, "+")); // Output: 8
 
 Here, calculate is part of Calculator.prototype, so it is shared across all instances of Calculator.
 
-How Prototype Works in ES6 Classes (New Way)
+### How Prototype Works in ES6 Classes (New Way)
 With ES6 classes, methods are automatically added to the prototype, so you don't need to manually assign them:
 
 ```javascript
@@ -55,12 +55,12 @@ console.log(calculator.calculate(5, 3, "+")); // Output: 8
 Under the hood, JavaScript automatically translates this class into prototype-based syntax. If you inspect an instance in the browser console:
 
 `console.log(Object.getPrototypeOf(calculator));`
-You'll see that calculate() exists on Calculator.prototype, not on the instance itself.
+You'll see that calculate() exists on `Calculator.prototype`, not on the instance itself.
 
 Why Does This Matter?
 
-    If you define methods inside the constructor, they are created every time you instantiate an object, wasting memory.
-    If you define methods inside a class (but outside the constructor), they are added to the prototype and shared across instances, making them memory-efficient.
+- If you define methods inside the constructor, they are created every time you instantiate an object, wasting memory.
+- If you define methods inside a class (but outside the constructor), they are added to the prototype and shared across instances, making them memory-efficient.
 
 Final Answer
 
