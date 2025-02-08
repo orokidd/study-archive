@@ -39,5 +39,5 @@ class Calculator {
   }
 }
 
-const calculator = new Calculator();
+const calculatorNew = new Calculator();
 console.log(calculator.calculate(5, 3, "+")); // Output: 8
