@@ -35,20 +35,20 @@ console.log(player_name) // output gh
 //
 //
 const team_2 = {
-  team_name: "talon",
+  team_name: "tundra",
   player1: {
-    player_name_2: "mikoto",
+    player_name_2: "bzm",
     position: "mid",
     age: 24,
   },
   player2: {
-    player_name_2: "ws",
-    position: "offlane",
+    player_name_2: "saksa",
+    position: "support",
     age: 21,
   }
 }
 
 const {team_name, player1: { player_name_2, position }} = team_2;
-console.log(team_name, player_name_2, position) // output talon mikoto mid
+console.log(team_name, player_name_2, position) // output tundra bzm mid
 //
 //
