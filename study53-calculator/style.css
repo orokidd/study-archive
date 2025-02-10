@@ -1,7 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: darkslategray;
 }
 
 img {
     max-width: 400px;
+}
+
+.outputDiv{
+    height: 40px;
+}
+
+.number-buttons {
+    width: 24rem;
+}
+
+
+button {
+    width: 5rem;
+    height: 4rem;
+    margin: .2rem;
 }
