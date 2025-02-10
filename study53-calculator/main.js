@@ -4,39 +4,39 @@ const operatorButton = document.querySelectorAll(".operator")
 const countButton = document.querySelector(".count");
 const clearButton = document.querySelector(".clear");
 
-let waitingForSecondNumber = false;
+let waitSecondNumber = false;
 let firstNum = ""
 let secondNum = ""
 let operatorNum = ""
 let finalResult
 
-const output = document.querySelector(".hasil");
+const output = document.querySelector(".operand1");
 output.textContent = ""
 
 const outputOp = document.querySelector(".operator");
 outputOp.textContent = ""
 
-const output2 = document.querySelector(".hasil2");
+const output2 = document.querySelector(".operand2");
 output2.textContent = ""
 
 numbersButton.forEach((number) => {
   number.addEventListener('click', () => {
-    if (!waitingForSecondNumber) {
-      firstNumber(number)
+    if (!waitSecondNumber) {
+      inputFirstNumber(number)
     } else {
-      secondNumber(number)
+      inputSecondNumber(number)
     }
   })
 })
 
-function firstNumber(number) {
-  output.textContent += number.textContent;
-  firstNum += number.textContent;
+function inputFirstNumber(number) {
+  output.textContent += number.value;
+  firstNum += number.value;
 }
 
-function secondNumber(number) {
-  output2.textContent += number.textContent;
-  secondNum += number.textContent;
+function inputSecondNumber(number) {
+  output2.textContent += number.value;
+  secondNum += number.value;
 }
 
 operatorButton.forEach((operator) => {
@@ -52,7 +52,7 @@ function clickOperator(operator) {
     output2.textContent = ""
     secondNum = "";
   } else {
-    waitingForSecondNumber = true;
+    waitSecondNumber = true;
   }
   operatorNum = operator.textContent;
 }
@@ -88,7 +88,7 @@ function countResult(num1, num2, op) {
 }
 
 clearButton.addEventListener('click', () => {
-  waitingForSecondNumber = false;
+  waitSecondNumber = false;
   firstNum = ""
   secondNum = ""
   operatorNum = ""
