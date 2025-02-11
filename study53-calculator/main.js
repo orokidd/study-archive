@@ -61,6 +61,16 @@ function countResult(num1, num2, op) {
   }
 }
 
+function clearState() {
+  waitSecondNumber = false;
+  firstNum = ""
+  secondNum = ""
+  operatorNum = ""
+  output.textContent = ""
+  outputOp.textContent = ""
+  output2.textContent = ""
+}
+
 numbersButton.forEach((number) => {
   number.addEventListener('click', () => {
     if (!waitSecondNumber) {
@@ -76,13 +86,4 @@ countButton.addEventListener('click', () => {
   outputOp.textContent = ""
 })
 
-clearButton.addEventListener('click', () => {
-  waitSecondNumber = false;
-  firstNum = ""
-  secondNum = ""
-  operatorNum = ""
-
-  output.textContent = ""
-  outputOp.textContent = ""
-  output2.textContent = ""
-})
+clearButton.addEventListener('click', clearState)
