@@ -7,11 +7,7 @@ const output = document.querySelector(".operand1");
 const outputOp = document.querySelector(".operator");
 const output2 = document.querySelector(".operand2");
 
-let waitSecondNumber = false;
-let firstNum = ""
-let secondNum = ""
-let operatorNum = ""
-let finalResult
+let waitSecondNumber, firstNum, secondNum, operatorNum, finalResult;
 
 function inputFirstNumber(number) {
   output.textContent += number.value;
@@ -87,3 +83,5 @@ countButton.addEventListener('click', () => {
 })
 
 clearButton.addEventListener('click', clearState)
+
+clearState(); 
