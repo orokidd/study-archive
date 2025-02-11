@@ -28,7 +28,12 @@ operatorButton.forEach((operator) => {
 })
 
 function clickOperator(operator) {
-    outputOp.textContent = operator.textContent;
+  outputOp.textContent = operator.textContent;
+  computeResult();
+  operatorNum = operator.textContent;
+}
+
+function computeResult() {
   if (secondNum) {
     finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
     output.textContent = finalResult;
@@ -38,26 +43,21 @@ function clickOperator(operator) {
   } else {
     waitSecondNumber = true;
   }
-  operatorNum = operator.textContent;
 }
 
 function countResult(num1, num2, op) {
   switch (op) {
     case "+":
       return num1 + num2;
-      break;
 
     case "-":
       return num1 - num2;
-      break;
 
     case "*":
       return num1 * num2;
-      break;
 
     case "/":
-      return num1 / num2;
-      break;
+      return num2 === 0 ? "Error" : num1 / num2;
   }
 }
 
@@ -72,13 +72,8 @@ numbersButton.forEach((number) => {
 })
 
 countButton.addEventListener('click', () => {
-  finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
-  output.textContent = finalResult;
-  firstNum = finalResult;
-
+  computeResult();
   outputOp.textContent = ""
-  output2.textContent = ""
-  secondNum = "";
 })
 
 clearButton.addEventListener('click', () => {
