@@ -3,31 +3,15 @@ const numbersButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator")
 const countButton = document.querySelector(".count");
 const clearButton = document.querySelector(".clear");
+const output = document.querySelector(".operand1");
+const outputOp = document.querySelector(".operator");
+const output2 = document.querySelector(".operand2");
 
 let waitSecondNumber = false;
 let firstNum = ""
 let secondNum = ""
 let operatorNum = ""
 let finalResult
-
-const output = document.querySelector(".operand1");
-output.textContent = ""
-
-const outputOp = document.querySelector(".operator");
-outputOp.textContent = ""
-
-const output2 = document.querySelector(".operand2");
-output2.textContent = ""
-
-numbersButton.forEach((number) => {
-  number.addEventListener('click', () => {
-    if (!waitSecondNumber) {
-      inputFirstNumber(number)
-    } else {
-      inputSecondNumber(number)
-    }
-  })
-})
 
 function inputFirstNumber(number) {
   output.textContent += number.value;
@@ -57,16 +41,6 @@ function clickOperator(operator) {
   operatorNum = operator.textContent;
 }
 
-countButton.addEventListener('click', () => {
-  finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
-  output.textContent = finalResult;
-  firstNum = finalResult;
-
-  outputOp.textContent = ""
-  output2.textContent = ""
-  secondNum = "";
-})
-
 function countResult(num1, num2, op) {
   switch (op) {
     case "+":
@@ -86,6 +60,26 @@ function countResult(num1, num2, op) {
       break;
   }
 }
+
+numbersButton.forEach((number) => {
+  number.addEventListener('click', () => {
+    if (!waitSecondNumber) {
+      inputFirstNumber(number)
+    } else {
+      inputSecondNumber(number)
+    }
+  })
+})
+
+countButton.addEventListener('click', () => {
+  finalResult = countResult(parseFloat(firstNum), parseFloat(secondNum), operatorNum);
+  output.textContent = finalResult;
+  firstNum = finalResult;
+
+  outputOp.textContent = ""
+  output2.textContent = ""
+  secondNum = "";
+})
 
 clearButton.addEventListener('click', () => {
   waitSecondNumber = false;
