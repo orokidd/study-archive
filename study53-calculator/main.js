@@ -85,6 +85,7 @@ countButton.addEventListener('click', () => {
   else {
     computeResult(operatorNum);
     outputOp.textContent = "";
+    operatorNum = "";
   }
 })
 
