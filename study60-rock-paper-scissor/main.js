@@ -2,15 +2,14 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  const choice = Math.floor(Math.random() * 3); // random: 0,1,2
-  if (choice === 0) return "rock"; // 0,1,2
-  if (choice === 1) return "paper"; // 3,4,5
-  if (choice === 2) return "scissor"; // 6,7,8
+  const choice = Math.floor(Math.random() * 3);
+  if (choice === 0) return "rock";
+  if (choice === 1) return "paper";
+  if (choice === 2) return "scissor";
 }
 
 function getHumanChoice() {
-  const choice = prompt("Rock paper scissor");
-  return choice;
+  return prompt("Rock paper scissor");
 }
 
 function playRound(humanChoice, computerChoice) {
