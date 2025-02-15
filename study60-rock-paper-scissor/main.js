@@ -5,11 +5,17 @@ function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3);
   if (choice === 0) return "rock";
   if (choice === 1) return "paper";
-  if (choice === 2) return "scissor";
+  if (choice === 2) return "scissors";
 }
 
 function getHumanChoice() {
-  return prompt("Rock paper scissor");
+  let choice = prompt("Rock, paper, or scissors?").toLowerCase();
+
+  while (!['rock', 'paper', 'scissors'].includes(choice)) {
+    alert("Invalid choice. Please enter 'rock', 'paper', or 'scissors'.");
+    choice = prompt("Rock, paper, or scissors?").toLowerCase();
+  }
+  return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -29,13 +35,13 @@ function playRound(humanChoice, computerChoice) {
 
   if (human === "paper") {
     switch (computer) {
-      case "scissor":
+      case "scissors":
         winner = "computer";
         break;
     }
   }
 
-  if (human === "scissor") {
+  if (human === "scissors") {
     switch (computer) {
       case "rock":
         winner = "computer";
