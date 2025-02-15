@@ -105,4 +105,4 @@ function playGame() {
   gameWinner(humanScore, computerScore);
 }
 
-playGame();
+// playGame();
