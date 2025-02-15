@@ -51,7 +51,7 @@ function playRound(humanChoice, computerChoice) {
   showRoundWinner(winner, human, computer);
 }
 
-function showPlayerChoice(humanChoice, computerChoice){
+function showPlayerChoice(humanChoice, computerChoice) {
   console.log(`Human choice: ${humanChoice}`);
   console.log(`Computer choice: ${computerChoice}`);
 }
@@ -72,7 +72,17 @@ function showRoundWinner(winner, humanChoice, computerChoice) {
   }
 }
 
-function calculatePoints() {}
+function calculatePoints(roundWinner) {
+  switch (roundWinner) {
+    case "human":
+      humanScore++;
+      break;
+
+    case "computer":
+      computerScore++;
+      break;
+  }
+}
 
 function gameWinner() {}
 
