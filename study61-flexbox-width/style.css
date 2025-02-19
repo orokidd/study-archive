@@ -1,0 +1,58 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+/* Default flex behavior
+    Both flex item is set to flex:0, meaning they have no set width,
+    they follow whatever content is inside them,
+    in this case its just a text*/
+.container{
+    display: flex;
+}
+.container div {
+    border: solid 1px red;
+}
+
+/* If one flex item has flex:1 but not the other then 
+    the other item uses the default setting which is flex:0 */
+.container-2{
+    display: flex;
+}
+#test {
+    border: solid 1px red;
+    flex: 1;
+}
+#test2 {
+    border: solid 1px red;
+}
+
+/* Both flex item uses flex:1 which basically means 1:1 width ratio
+    so its 50:50!
+    Note that the item will grow to its maximum size wihch is its parent,
+    and the parent width follows the viewport size */
+.container-3{
+    display: flex;
+}
+#test3 {
+    border: solid 1px red;
+    flex: 1;
+}
+#test4 {
+    border: solid 1px red;
+    flex: 1;
+}
+
+/* Same thing with different ratio 1:2,
+    second div is double the size of div1 */
+.container-4{
+    display: flex;
+}
+#test5 {
+    border: solid 1px red;
+    flex: 1;
+}
+#test6 {
+    border: solid 1px red;
+    flex: 2;
+}
