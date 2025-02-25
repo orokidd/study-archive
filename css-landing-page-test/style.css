@@ -1,0 +1,128 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+    font-family: 'poppins';
+  }
+  
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  ul, li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+/* CSS Start */
+@font-face {
+    font-family: poppins;
+    src: url(./assets/fonts/poppins-regular.ttf);
+}
+@font-face {
+    font-family: poppins;
+    src: url(./assets/fonts/Poppins-Light.ttf);
+    font-weight: 300;
+}
+
+.wrapper {
+    padding: 0 40px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    
+    margin: auto;
+    margin-top: 40px;
+    max-width: 1200px;
+    
+    /* border: 1px solid red; */
+}
+    .menu {
+        display: flex;
+        gap: 40px;
+    }
+
+
+.banner {
+    display: flex;
+    margin: auto;
+    margin-top: 120px;
+    width: 100%;
+    max-width: 1200px;
+    
+    /* border: 1px solid red; */
+}
+    .banner-text {
+        flex: 1;
+    }
+        .banner-text h1 {
+            font-size: 3.6rem;
+            margin-bottom: 40px;
+            max-width: 580px;
+        }
+        .banner-text p {
+        max-width: 400px;
+        margin-bottom: 40px;
+        font-family: 'poppins';
+        font-weight: 300;
+        }
+        .banner-text button {
+            border: none;
+            border-radius: 24px;
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            }
+    .banner-image {
+        flex: 1;
+    }  
+
+.past-customers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+
+  margin-top: 120px;
+  width: 100%;
+  max-width: 1200px;
+}
+  .past-customers .logo {
+    filter:brightness(0);
+    width: 8%;
+  }
