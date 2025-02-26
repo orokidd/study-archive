@@ -135,7 +135,7 @@
   font-size: 1.6rem;
 }
 
-.services {
+.services-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -176,3 +176,11 @@
     flex: 1;
     filter: grayscale(100%);
   }
+
+.workflow-header {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 120px;
+  font-size: 1.6rem;
+}
