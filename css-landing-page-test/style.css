@@ -188,7 +188,19 @@
 .workflow-container {
   display: flex;
   justify-content: space-between;
+  gap: 40px;
 
-  max-width: 1200px;
   margin: auto;
+  margin-top: 120px;
+  padding-bottom: 120px;
+  max-width: 1200px;
+  
 }
+
+  .workflow-content {
+    flex: 1;
+  }
+
+  .workflow-content > img{
+    border-radius: 28px;
+  }
