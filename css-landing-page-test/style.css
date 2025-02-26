@@ -188,6 +188,7 @@
 .workflow-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 40px;
 
   margin: auto;
@@ -199,11 +200,15 @@
 
   .workflow-content {
     flex: 1;
+
+    min-width: 400px;
     font-family: 'poppins';
-        font-weight: 300;
+    font-weight: 300;
   }
 
   .workflow-content > img{
+    height: 660px;
+    width: 100%;
     object-fit: cover;
     border-radius: 38px;
   }
