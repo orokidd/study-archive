@@ -246,23 +246,23 @@
   .why-content:last-child {
     flex: 1;
   }
+  .why-content p {
+    font-size: .9rem;
+    max-width: 300px;
+    margin: 0 auto;
+  }
   .content-child {
     flex: 1;
 
     color: white;
     min-width: 330px;
     padding: 40px;
-    padding-bottom: 100px;
+    min-height: 280px;
     text-align: center;
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
   }
-    .content-child > p {
-      font-size: .8rem;
-      max-width: 300px;
-      margin: auto;
-    }
     .content-child.first {
       background-image: url(./assets/images/why7.jpg);
     }
@@ -270,6 +270,11 @@
       background-image: url(./assets/images/why6.jpg);
     }
     .content-child.third {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      
       background-image: url(./assets/images/why3.jpg);
     }
   .content-child-right {
@@ -279,7 +284,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-
+    
     background-image: url(./assets/images/why4.jpg);
     background-size: cover;
     background-position: center; 
