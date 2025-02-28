@@ -227,6 +227,7 @@
 .why-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 40px;
 
   margin: auto;
@@ -278,6 +279,7 @@
       background-image: url(./assets/images/why3.jpg);
     }
   .content-child-right {
+    flex: 1;
     color: white;
     padding: 40px;
     display: flex;
