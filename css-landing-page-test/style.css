@@ -350,3 +350,17 @@
     gap: 20px;
     
   }
+
+  @media screen and (max-width: 452px) {
+    .banner {
+      flex-direction: column-reverse;
+  } 
+
+  .service, .workflow-content {
+    min-width: 340px;
+  }
+
+  .nav > ul > li:first-child {
+    display: none;
+  }
+  }
