@@ -1,14 +1,32 @@
-function Model() {
-    const text = "we are not good enough, but we fear God";
-    return text;
+// Model
+function createModel() {
+  return "Hello, MVC World!";
 }
 
-function View() {
-    const app = document.querySelector("#app");
-    return {
-        render(message) {
-            app.innerHTML = `<h1>${message}</h1>`;
-        }}
+// View
+function createView() {
+  const app = document.querySelector(".app");
+
+  return {
+    render(message) {
+      app.innerHTML = `<h1>${message}</h1>`;
+    }
+  };
 }
 
-const init = View().render("pleasdr");
+// Controller
+function createController(model, view) {
+  return {
+    init() {
+      const message = model;
+      view.render(message);
+    },
+  };
+}
+
+// Initialization
+const model = createModel();
+const view = createView();
+const controller = createController(model, view);
+
+controller.init();
