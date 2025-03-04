@@ -7,7 +7,7 @@ function createModel() {
 function createView() {
   const app = document.querySelector(".app");
 
-  return {
+  return { 
     render(message) {
       app.innerHTML = `<h1>${message}</h1>`;
     }
@@ -17,7 +17,7 @@ function createView() {
 // Controller
 function createController(model, view) {
   return {
-    init() {
+    init() { // returns an object with init() method
       const message = model;
       view.render(message);
     },
@@ -29,4 +29,4 @@ const model = createModel();
 const view = createView();
 const controller = createController(model, view);
 
-controller.init();
+controller.init(); // because controller returns an object 

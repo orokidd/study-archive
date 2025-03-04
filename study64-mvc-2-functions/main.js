@@ -18,8 +18,8 @@ function createView() {
 
 // Controller
 function createController(model, view) {
-    return {
-        init: function() {
+    return { // returns an object with init() method
+        init: function() { 
             const message = model.message;
             view.render(message);
         }
