@@ -30,4 +30,5 @@ const controller = createController(model, view);
 controller.init();
 controller.init();
 // create 2 different paragraph
-// this work because everytime render() is called it create a new p element
+// this work because everytime render() is called 
+// it create a new p element
