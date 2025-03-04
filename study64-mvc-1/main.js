@@ -1,7 +1,7 @@
-// Model: Holds the data
+// Model
 class Model {
     constructor() {
-        this.message = "Hello from the MVC Model!";
+        this.message = "Hello, MVC World!";
     }
 
     getMessage() {
@@ -9,30 +9,35 @@ class Model {
     }
 }
 
-// View: Handles the display logic
+// View
 class View {
-    displayMessage(message) {
-        console.log(message);
+    constructor() {
+        this.app = document.getElementById('app');
+    }
+
+    render(message) {
+        this.app.innerHTML = `<h1>${message}</h1>`;
     }
 }
 
-// Controller: Connects Model and View
+// Controller
 class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
     }
 
-    showMessage() {
+    init() {
         const message = this.model.getMessage();
-        this.view.displayMessage(message);
+        this.view.render(message);
     }
 }
 
-// Initialize MVC components
-const model = new Model();
-const view = new View();
-const controller = new Controller(model, view);
+// Initialization
+document.addEventListener('DOMContentLoaded', () => {
+    const model = new Model();
+    const view = new View();
+    const controller = new Controller(model, view);
 
-// Execute the program
-controller.showMessage();
+    controller.init();
+});
