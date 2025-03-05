@@ -27,7 +27,8 @@ class Controller {
     }
 
     init() {
-        this.view.changeText(this.model.secondMessage);
+        const message = this.model.getMessage();
+        this.view.changeText(message);
     }
 }
 
