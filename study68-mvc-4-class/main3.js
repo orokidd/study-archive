@@ -1,7 +1,7 @@
-// Model
 class Model {
     constructor() {
-        this.message = "Hello, MVC World!";
+        this.message = "This is a sample message";
+        this.secondMessage = "This is a sample message number two";
     }
 
     getMessage() {
@@ -9,31 +9,29 @@ class Model {
     }
 }
 
-// View
 class View {
     constructor() {
-        this.app = document.getElementById('app');
+        this.container = document.querySelector("#app");
+        
     }
 
-    render(message) {
-        this.app.innerHTML = `<h1>${message}</h1>`;
+    changeText(text){
+        this.container.innerHTML = text;
     }
 }
 
-// Controller
 class Controller {
     constructor(model, view) {
-        this.model = model;
+        this.model = model.secondMessage;
         this.view = view;
     }
 
     init() {
-        const message = this.model.getMessage();
-        this.view.render(message);
+        this.view.changeText(this.model);
     }
 }
 
-// Initialization
+
 const model = new Model();
 const view = new View();
 const controller = new Controller(model, view);
