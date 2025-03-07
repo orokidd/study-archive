@@ -15,3 +15,5 @@ class View {
 }
 
 const init = new View();
+
+// Output: 1 container
