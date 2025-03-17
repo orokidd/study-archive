@@ -68,8 +68,47 @@ const gameLogic = (() => {
   };
 
   const switchPlayer = () => {
-    currentPlayer = currentPlayer === gamePlayer.getPlayer1() ? gamePlayer.getPlayer2() : gamePlayer.getPlayer1();
+    if (gameActive) {
+      currentPlayer =
+        currentPlayer === gamePlayer.getPlayer1()
+          ? gamePlayer.getPlayer2()
+          : gamePlayer.getPlayer1();
+      displayController.updateMessage(`It's ${currentPlayer}'s turn`);
+    }
   };
 
+  return { checkWinner, playerInput, switchPlayer };
+})();
 
+const displayController = (() => {
+  const cells = document.querySelectorAll(".cell");
+  const message = document.querySelector("#status");
+  const resetButton = document.querySelector("#reset");
+
+  const updateBoard = () => {
+    const board = gameBoard.getBoard();
+    cells.forEach((cell, index) => {
+      cell.textContent = board[index];
+    });
+  };
+
+  const updateMessage = (content) => {
+    message.textContent = content;
+  };
+
+  const resetBoard = () => {
+    gameBoard.resetBoard();
+    updateBoard();
+    updateMessage("");
+  };
+
+  cells.forEach((cell, index) => {
+    cell.addEventListener("click", () => {
+      gameLogic.playerInput(index);
+    });
+  });
+
+  resetButton.addEventListener("click", resetBoard);
+
+  return { updateBoard, updateMessage };
 })();
