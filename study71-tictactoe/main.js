@@ -54,7 +54,7 @@ const gameLogic = (() => {
 
     if (!board.includes("")) {
       gameActive = false;
-      displayController.updateMessage("It's a tie!");
+      displayController.updateMessage("Game over, It's a tie!");
     }
   };
 
@@ -62,7 +62,7 @@ const gameLogic = (() => {
     if (!gameActive) return;
 
     gameBoard.setBoard(position, currentPlayer);
-    displayController.updateBoard();
+    displayController.updateBoard(board);
     checkWinner();
     switchPlayer();
   };
@@ -77,7 +77,15 @@ const gameLogic = (() => {
     }
   };
 
-  return { checkWinner, playerInput, switchPlayer };
+  const resetGame = () => {
+    gameBoard.resetBoard();
+    displayController.updateBoard(board);
+    displayController.updateMessage("Game Restarted");
+    gameActive = true;
+    currentPlayer = gamePlayer.getPlayer1();
+  };
+
+  return { checkWinner, playerInput, switchPlayer, resetGame };
 })();
 
 const displayController = (() => {
@@ -85,8 +93,7 @@ const displayController = (() => {
   const message = document.querySelector("#status");
   const resetButton = document.querySelector("#reset");
 
-  const updateBoard = () => {
-    const board = gameBoard.getBoard();
+  const updateBoard = (board) => {
     cells.forEach((cell, index) => {
       cell.textContent = board[index];
     });
@@ -96,19 +103,13 @@ const displayController = (() => {
     message.textContent = content;
   };
 
-  const resetBoard = () => {
-    gameBoard.resetBoard();
-    updateBoard();
-    updateMessage("");
-  };
-
   cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
       gameLogic.playerInput(index);
     });
   });
 
-  resetButton.addEventListener("click", resetBoard);
+  resetButton.addEventListener("click", gameLogic.resetGame);
 
   return { updateBoard, updateMessage };
 })();
