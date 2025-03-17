@@ -49,16 +49,27 @@ const gameLogic = (() => {
         displayController.updateMessage(
           `Game over! The winner is ${currentPlayer}`
         );
-        return true;
       }
     }
 
     if (!board.includes("")) {
       gameActive = false;
       displayController.updateMessage("It's a tie!");
-      return true;
     }
-
-    return false;
   };
+
+  const playerInput = (position) => {
+    if (!gameActive) return;
+
+    gameBoard.setBoard(position, currentPlayer);
+    displayController.updateBoard();
+    checkWinner();
+    switchPlayer();
+  };
+
+  const switchPlayer = () => {
+    currentPlayer = currentPlayer === gamePlayer.getPlayer1() ? gamePlayer.getPlayer2() : gamePlayer.getPlayer1();
+  };
+
+
 })();
