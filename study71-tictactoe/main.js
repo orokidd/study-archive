@@ -1,24 +1,64 @@
-const gameModel = (() => { 
+const gameBoard = (() => {
   let board = ["", "", "", "", "", "", "", "", ""];
+
   const getBoard = () => {
-    return board
-  }
+    return board;
+  };
   const setBoard = (position, marker) => {
     board[position] = marker;
-  }
-
+  };
   const resetBoard = () => board.fill("");
 
   return { getBoard, setBoard, resetBoard };
 })();
 
+const gamePlayer = (() => {
+  let player1 = "X";
+  let player2 = "O";
+
+  const getPlayer1 = () => player1;
+  const getPlayer2 = () => player2;
+
+  return { getPlayer1, getPlayer2 };
+})();
+
 const gameLogic = (() => {
-
-  let currentPlayer = "X";
+  let currentPlayer = gamePlayer.getPlayer1();
   let gameActive = true;
+  const board = gameBoard.getBoard();
+  const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8], // Rows
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8], // Columns
+    [0, 4, 8],
+    [2, 4, 6], // Diagonals
+  ];
 
+  const checkWinner = () => {
+    for (let condition of winningConditions) {
+      const [first, second, third] = condition;
+      if (
+        board[first] &&
+        board[first] === board[second] &&
+        board[first] === board[third]
+      ) {
+        gameActive = false;
+        displayController.updateMessage(
+          `Game over! The winner is ${currentPlayer}`
+        );
+        return true;
+      }
+    }
 
+    if (!board.includes("")) {
+      gameActive = false;
+      displayController.updateMessage("It's a tie!");
+      return true;
+    }
 
-
-  
+    return false;
+  };
 })();
