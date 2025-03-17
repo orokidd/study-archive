@@ -13,8 +13,14 @@ const gameBoard = (() => {
 })();
 
 const gamePlayer = (() => {
-  let player1 = "X";
-  let player2 = "O";
+  let player1 = {
+    name: "Player 1",
+    marker: "X",
+  };
+  let player2 = {
+    name: "Player 2",
+    marker: "O",
+  };
 
   const getPlayer1 = () => player1;
   const getPlayer2 = () => player2;
@@ -29,12 +35,12 @@ const gameLogic = (() => {
   const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
-    [6, 7, 8], // Rows
+    [6, 7, 8],
     [0, 3, 6],
     [1, 4, 7],
-    [2, 5, 8], // Columns
+    [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6], // Diagonals
+    [2, 4, 6],
   ];
 
   const checkWinner = () => {
@@ -47,7 +53,7 @@ const gameLogic = (() => {
       ) {
         gameActive = false;
         displayController.updateMessage(
-          `Game over! The winner is ${currentPlayer}`
+          `Game over! The winner is ${currentPlayer.name}`
         );
       }
     }
@@ -61,7 +67,7 @@ const gameLogic = (() => {
   const playerInput = (position) => {
     if (!gameActive) return;
 
-    gameBoard.setBoard(position, currentPlayer);
+    gameBoard.setBoard(position, currentPlayer.marker);
     displayController.updateBoard(board);
     checkWinner();
     switchPlayer();
@@ -73,7 +79,7 @@ const gameLogic = (() => {
         currentPlayer === gamePlayer.getPlayer1()
           ? gamePlayer.getPlayer2()
           : gamePlayer.getPlayer1();
-      displayController.updateMessage(`It's ${currentPlayer}'s turn`);
+      displayController.updateMessage(`It's ${currentPlayer.name}'s turn`);
     }
   };
 
