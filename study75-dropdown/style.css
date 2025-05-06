@@ -10,6 +10,11 @@ body {
 
 .dropdown-menu {
   margin: 40px;
+  margin-left: 240px;
+}
+
+.dropdown {
+  position: absolute;
 }
 
 .dropdown.active {
@@ -19,4 +24,8 @@ body {
 
 .dropdown.inactive {
   display: none;
+}
+
+.option:hover {
+  cursor: pointer;
 }
