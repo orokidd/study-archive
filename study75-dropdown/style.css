@@ -8,13 +8,13 @@ body {
   color: white;
 }
 
-.button {
-  margin: 24px;
+.dropdown-menu {
+  margin: 40px;
 }
-  
 
 .dropdown.active {
   display: inline-block;
+  background-color: cadetblue;
 }
 
 .dropdown.inactive {
