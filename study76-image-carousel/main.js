@@ -13,9 +13,14 @@ function showImage() {
 
 (function createIndicator() {
   const body = document.querySelector('body')
-  images.forEach(() => {
+  images.forEach((image, index) => {
     const indicator = document.createElement("div")
     indicator.className = "nav-indicator"
+
+    indicator.addEventListener('click', () => {
+      currentIndex = index;
+      showImage();
+    });
 
     body.appendChild(indicator)
   })
@@ -34,17 +39,6 @@ function resetActiveIndicator() {
     indicator.className = 'nav-indicator'
   })
 }
-
-(function indicatorClick() {
-  const indicators = document.querySelectorAll('.nav-indicator')
-
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', ()=> {
-      currentIndex = index;
-      showImage();
-    })
-  })
-})();
 
 nextButton.addEventListener('click', ()=> {
   if (currentIndex === images.length - 1) {
