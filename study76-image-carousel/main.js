@@ -7,6 +7,32 @@ let currentIndex = 0;
 function showImage() {
   const imageElement = document.querySelector('img')
   imageElement.src = `images/${images[currentIndex]}`
+  resetActiveIndicator();
+  changeActiveIndicator();
+}
+
+(function createIndicator() {
+  const body = document.querySelector('body')
+  images.forEach(() => {
+    const indicator = document.createElement("div")
+    indicator.className = "nav-indicator"
+
+    body.appendChild(indicator)
+  })
+})();
+
+function changeActiveIndicator() {
+  const indicators = document.querySelectorAll('.nav-indicator')
+
+  indicators[currentIndex].classList.add('active')
+}
+
+function resetActiveIndicator() {
+  const indicators = document.querySelectorAll('.nav-indicator')
+
+  indicators.forEach(indicator => {
+    indicator.className = 'nav-indicator'
+  })
 }
 
 nextButton.addEventListener('click', ()=> {
@@ -16,6 +42,7 @@ nextButton.addEventListener('click', ()=> {
   } else {
     currentIndex++;
     showImage();
+    
   }
 })
 
@@ -26,7 +53,8 @@ previousButton.addEventListener('click', ()=> {
   } else {
   currentIndex -= 1;
   showImage();
+  
   }
-})
+});
 
 showImage();

@@ -47,3 +47,14 @@ body {
 img {
   height: 80vh;
 }
+
+.nav-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: aliceblue;
+}
+
+.nav-indicator.active {
+  background-color: rgb(52, 83, 103);
+}
