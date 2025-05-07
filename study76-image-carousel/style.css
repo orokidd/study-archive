@@ -58,3 +58,7 @@ img {
 .nav-indicator.active {
   background-color: rgb(52, 83, 103);
 }
+
+.nav-indicator:hover {
+  cursor: pointer;
+}
