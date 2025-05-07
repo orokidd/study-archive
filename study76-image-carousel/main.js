@@ -1,0 +1,32 @@
+const nextButton = document.querySelector('.next-button')
+const previousButton = document.querySelector('.prev-button')
+const images = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg"]
+
+let currentIndex = 0;
+
+function showImage() {
+  const imageElement = document.querySelector('img')
+  imageElement.src = `images/${images[currentIndex]}`
+}
+
+nextButton.addEventListener('click', ()=> {
+  if (currentIndex === images.length - 1) {
+    currentIndex = 0;
+    showImage();
+  } else {
+    currentIndex++;
+    showImage();
+  }
+})
+
+previousButton.addEventListener('click', ()=> {
+  if (currentIndex === 0) {
+    currentIndex = images.length - 1;
+    showImage();
+  } else {
+  currentIndex -= 1;
+  showImage();
+  }
+})
+
+showImage();
