@@ -67,8 +67,9 @@ function deleteTodo(projectId, todoId) {
 function deleteTodo(project, task) {
   const todoIndex = project.todos.findIndex((t) => t === task);
 
-  project.todos.splice(todoIndex, 1); 
-/* Even though its only deleting a task from a passed project from the argument it also deletes it from the todoData
+  project.todos.splice(todoIndex, 1);
+
+  /* Even though its only deleting a task from the project it also deletes it from the todoData
 because object is a reference. */
 }
 
@@ -78,4 +79,19 @@ function deleteTodo(project, task) {
   const todoIndex = project.todos.findIndex((t) => t.id === task.id);
 
   project.todos.splice(todoIndex, 1);
+}
+
+function deleteTodo(projectId, todoId) {
+  const project = todoData.find((project) => project.id === projectId);
+
+  const todoIndex = project.todos.findIndex((todo) => todo.id === todoId);
+
+  project.todos.splice(todoIndex, 1);
+  saveToStorage();
+
+  /* This is another example from your original deleteTodo function from todo list project.
+  the project variable literally returns an element from todoData (reference) and you're
+  basically just modifying that reference.
+  The deleteTodo function before this demonstrate the simpler way of doing this by just deleting the task straight from
+  the project reference. */
 }
