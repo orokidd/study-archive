@@ -90,7 +90,8 @@ function deleteTodo(projectId, todoId) {
   project.todos.splice(todoIndex, 1);
   saveToStorage();
 }
-/* This is another example from your original deleteTodo function from todo list project.
+/* This is example from your original deleteTodo function from todo list project.
   the project variable literally returns an element from todoData (reference) and you're
   basically modifying that reference(from the original data).
+  this is a longer way to do this, you can just pass in the project or the todo object directly and modify it
    */
