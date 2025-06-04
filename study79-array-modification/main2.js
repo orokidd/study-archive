@@ -75,7 +75,6 @@ function toggleCompletion(project, todoId) {
 function toggleCompletion(todo) {
   todo.completed = !todo.completed;
   saveToStorage();
-
-  /* You can pass in the todo object directly and modify it without accessing the parent object first because when you pass
-  an object, it passes a reference to the original source, so when you modify this todo, it also modifies the original ones in this case todoData */
 }
+/* You can pass in the todo object directly and modify it without accessing the parent object first because when you pass
+  an object, it passes a reference to the original source, so when you modify this todo, it also modifies the original ones in this case todoData */
