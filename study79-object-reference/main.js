@@ -69,7 +69,7 @@ function deleteTodo(project, task) {
 
   project.todos.splice(todoIndex, 1);
 }
-/* Even though its only deleting a task from the project it also deletes it from the todoData
+/* Even though the function is only deleting a task from the project it also deletes it from the whole todoData
 because object is a reference. */
 
 /* OR */
