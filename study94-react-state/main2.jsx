@@ -1,3 +1,5 @@
+// setNomor(nomor + 1) = setNomor(2),setNomor(3),setNomor(4),etc
+
 import React, { useState } from "react";
 
 export function App() {
@@ -11,5 +13,3 @@ export function App() {
     </div>
   )
 }
-
-// setNomor(nomor + 1) = setNomor(2),setNomor(3),setNomor(4),etc

@@ -1,4 +1,4 @@
-// passing a function as prop
+// Passing a function as prop
 function Button({ text = "Click Me!", color = "blue", fontSize = 12, handleClick }) {
   const buttonStyle = {
     color: color,
