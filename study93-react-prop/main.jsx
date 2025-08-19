@@ -1,4 +1,4 @@
-// passing props to a child component without destructuring
+// Passing props to a child component without destructuring
 function Button(props) {
   const buttonStyle = {
     color: props.color,

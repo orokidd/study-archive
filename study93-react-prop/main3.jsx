@@ -1,4 +1,4 @@
-// default props values
+// Default props values
 function Button({ text = "Click Me!", color = "blue", fontSize = 12 }) {
   const buttonStyle = {
     color: color,
