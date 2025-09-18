@@ -17,16 +17,6 @@ class LifecycleDemo extends Component {
     }, 2000);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("🔹 shouldComponentUpdate: decide if re-render is needed");
-    return true; // returning false prevents re-render
-  }
-
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log("🔹 getSnapshotBeforeUpdate: capture info before DOM updates");
-    return null; // e.g., scroll position
-  }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("🔹 componentDidUpdate: component updated");
   }
