@@ -4,8 +4,7 @@
 // The correct way is to lift up the fetch request to Profile so both can fetch simultaneously
 // Then pass down the fetched data as props to Bio component
 // The commented lines are the correct way of doing it
-// The uncommented lines are incorrect but still works
-// But it causes slow fetch requests because Bio has to wait for Profile to finish fetching
+// The uncommented lines are incorrect but still works (slower)
 
 import { useEffect, useState } from 'react';
 import Bio from './Bio.jsx';

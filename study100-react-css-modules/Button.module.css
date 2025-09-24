@@ -1,0 +1,13 @@
+/* Button.module.css */
+.btn {
+  background: blue;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: darkblue;
+}
